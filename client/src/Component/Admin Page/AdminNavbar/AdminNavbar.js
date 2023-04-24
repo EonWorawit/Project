@@ -1,0 +1,49 @@
+import React from "react";
+import { Link, useNavigate} from "react-router-dom";
+import './AdminNavbar.css'
+import Swal from "sweetalert2";
+
+const AdminNavbar = () => {
+    const navigate = useNavigate();
+    const Logout = () => {
+        window.localStorage.removeItem("isLoggedInAdmin");
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "ออกจากระบบสำเร็จ",
+            showConfirmButton: false,
+            timer: 2500,
+          });
+        navigate("/");
+    }
+
+    return (
+        <div className="background">
+            <div className="container p-3 mb-3" >
+                <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <Link to="/admin" className="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                        <img src="https://www.jobbkk.com/upload/employer/0A/19A/03119A/images/2022-05-249811.png" alt="" width="200" height="50"/>
+                    </Link>
+                    <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 navbar">
+                        <li><Link to="/admin" className="nav-link px-2 text-white">ข้อมูลโดยรวม</Link></li>
+                        <li><Link to="/admin/employee" className="nav-link px-2 text-white">ข้อมูลพนักงาน</Link></li>
+                        <li><Link to="/admin/calendar" className="nav-link px-2 text-white">ปฏิทิน</Link></li>
+                        <li><Link to="/admin/team" className="nav-link px-2 text-white">จัดการทีม</Link></li>
+                        <li><Link to="/admin/leave" className="nav-link px-2 text-white ">ข้อมูลการลา</Link></li>
+                        <li><Link to="/admin/noti" className="nav-link px-2 text-white">การแจ้งเตือน</Link></li>
+                    </ul>
+                    {/* <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                        <input type="search" class="form-control" placeholder="Search" aria-label="Search"/>
+                    </form> */}
+                    <div>
+                        <button type="button" className="btn btn-primary navbar" data-bs-toggle="dropdown" aria-expanded="false" onClick={Logout}>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    )
+}
+
+export default AdminNavbar
