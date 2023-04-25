@@ -127,7 +127,8 @@ app.post("/create", async (req, res) => {
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
   const user = pool.query(
-    "SELECT * FROM employees WHERE username = $1",
+    "SELECT * FROM employees WHERE username = $1", 
+    // เลือข้อมูลเพียงเเค่ username ทำให้ error
     [username],
     (err, employees) => {
       bcrypt.compare(

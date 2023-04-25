@@ -61,6 +61,7 @@ export default function Login() {
             });
             navigate("/home");
           }
+          
         // } 
         else if (result.active === false) {
           Swal.fire({
