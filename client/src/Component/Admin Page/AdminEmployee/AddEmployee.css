@@ -3,6 +3,12 @@
     justify-content: center;
     align-items: center;
     height: auto;
+    font-family: 'K2D', sans-serif;
+	  font-family: 'Pridi', serif;
+    text-align: left;
+    font-size: 25px;
+    color: #000000;
+    display: block;
   }
   
   .form-signin {

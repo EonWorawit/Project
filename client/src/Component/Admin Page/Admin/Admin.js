@@ -27,9 +27,9 @@ const COLORS = ['#008800', '#c83232', '#ffe100'];
 const data02 = [
   {
     name: 'มกราคม',
-    uv: 40,
-    pv: 20,
-    amt: 20,
+    A1: 40,
+    A2: 20,
+    A3: 20,
   },
   {
     name: 'กุมภาพันธ์',
@@ -134,7 +134,7 @@ export default function Admin() {
     <>
       <AdminNavbar />
 
-      <div className="row">
+      <div className="row mx-5">
         <div className="row">
           <div className="col-sm-4">
             <div className="card1">
@@ -180,7 +180,7 @@ export default function Admin() {
               <div className="card-body d-grid gap-2 d-md-flex">
                 <BarChart
                 
-                  width={1280}
+                  width={1200}
                   height={300}
                   data={data02}
                   margin={{
@@ -195,9 +195,9 @@ export default function Admin() {
                   <YAxis unit="คน" />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="pv" fill="#329632" />
-                  <Bar dataKey="amt" fill="#c83232" />
-                  <Bar dataKey="uv" fill="#ffe100" />
+                  <Bar dataKey="A1" fill="#329632" />
+                  <Bar dataKey="A2" fill="#c83232" />
+                  <Bar dataKey="A3" fill="#ffe100" />
                   
                 </BarChart>
               </div>
@@ -208,7 +208,7 @@ export default function Admin() {
             <div className="card4">
               <div className="card-body">
                 <ComposedChart
-                  width={645}
+                  width={600}
                   height={300}
                   data={data}
                   margin={{
@@ -232,7 +232,7 @@ export default function Admin() {
             </div>
             <br />
           </div>
-            <div className="card">
+            
               <div className="card-body">
                 <front4 className="card-title">การผ่านการอบรมของพนักงาน</front4 >
                 <div className="card3">
@@ -241,7 +241,11 @@ export default function Admin() {
                     <front2 className="card-title">{employeeList.map((val) => {
                       return (
                         <div>
+                          <ul className="item-lish">
+                          <li>
                           <b>{val.employeename}</b>
+                          </li>
+                          </ul>
                         </div>
                       );
                     })}
@@ -287,7 +291,7 @@ export default function Admin() {
                     </PieChart>
                   </div>
                 </div>
-              </div>
+              
             </div>
             <br />
 

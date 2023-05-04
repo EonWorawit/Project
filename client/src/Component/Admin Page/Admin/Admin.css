@@ -35,7 +35,7 @@ front3 {
 front4 {
     font-family: 'K2D', sans-serif;
 	font-family: 'Pridi', serif;
-    margin: 5px;
+    text-align: left;
     font-size: 50px;
     color: #000000;
     display: block;
@@ -48,8 +48,13 @@ front4 {
     background-color: #c83232;
 }
 .card3{
-    background-color: #ffe100;
+    background-color: #d0d0d0;
 }
 .card4{
     background-color: #ffffff;
+}
+
+.item-lish{
+    list-style-type: none;
+    border:3px solid rgb(0, 0, 0);
 }

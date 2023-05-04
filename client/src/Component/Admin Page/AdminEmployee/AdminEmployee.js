@@ -20,7 +20,7 @@ export default function AdminEmployees() {
       <AdminNavbar />
       <div className="middle">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <Link to="/admin/addemployee" class="btn btn-primary me-md-2">
+          <Link to="/admin/addemployee" class="btn btn-primary me-md-2 middle">
             เพิ่มพนักงาน
           </Link>
         </div>

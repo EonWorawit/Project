@@ -7,13 +7,14 @@ export default function AdminNoti() {
   return (
     <>
       <AdminNavbar />
+
       <div className="container">
         <Tabs
           defaultActiveKey="home"
           id="uncontrolled-tab-example"
           className="mb-6"
         >
-          <Tab eventKey="home" title="การแจ้งเตือนทั้งหมด">
+          <Tab eventKey="h" title="การแจ้งเตือนทั้งหมด">
             <br />
             <p>การแจ้งเตือนทั้งหมด</p>
           </Tab>

@@ -7,6 +7,8 @@ import Register from "./Component/Pages/Register/Register";
 import Admin from "./Component/Admin Page/Admin/Admin";
 import AdminEmployees from "./Component/Admin Page/AdminEmployee/AdminEmployee";
 import AddEmployee from "./Component/Admin Page/AdminEmployee/AddEmployee";
+
+
 // import AdminCalendar from "./Component/Admin Page/AdminCalendar/AdminCalendar";
 import AdminAddEvents from "./Component/Admin Page/AdminCalendar/AdminAddEvents";
 import Calendar from "./Component/Pages/Calendar/Calendar";
@@ -16,11 +18,12 @@ import Noti from "./Component/Pages/Noti/Noti";
 import AdminTeam from "./Component/Admin Page/AdminTeam/AdminTeam";
 import AdminLeave from "./Component/Admin Page/AdminLeave/AdminLeave";
 import AdminAddTeam from "./Component/Admin Page/AdminTeam/AdminAddTeam";
-import Test from "./Component/Admin Page/AdminCalendar/Test";
+
 import AdminEditEmployee from "./Component/Admin Page/AdminEmployee/AdminEditEmployee";
 import AdminEditTeam from "./Component/Admin Page/AdminTeam/AdminEditTeam";
 import AdminAddLeave from "./Component/Admin Page/AdminLeave/AdminAddLeave";
 import AdminEditLeave from "./Component/Admin Page/AdminLeave/AdminEditLeave";
+import AdminCalendar from "./Component/Admin Page/AdminCalendar/AdminCalendar";
 
 
 function App() {
@@ -39,11 +42,12 @@ function App() {
           <Route path="calendar" element={<Calendar />} />
           <Route path="addevent" element={<AddEvents />} />
           <Route path="noti" element={<Noti />} />
+
           <Route path="/admin">
             <Route index element={<Admin />} />
             <Route path="employee" element={<AdminEmployees />} />
             <Route path="addemployee" element={<AddEmployee />} />
-            <Route path="calendar" element={<Test />} />
+            <Route path="calendar" element={<AdminCalendar />} />
             <Route path="addevent" element={<AdminAddEvents/>} />
             <Route path="team" element={<AdminTeam/>} />
             <Route path="edit/team/:id" element={<AdminEditTeam/>} />

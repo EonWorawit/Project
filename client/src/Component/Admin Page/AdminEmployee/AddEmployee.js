@@ -6,6 +6,9 @@ import "./AddEmployee.css";
 import Swal from "sweetalert2";
 import AdminNavbar from "../AdminNavbar/AdminNavbar";
 
+
+
+
 export default function AddEmployee() {
   const [data1, setData1] = useState([]);
   Axios.get("https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_tambon.json").then((response) => {
@@ -21,7 +24,9 @@ export default function AddEmployee() {
   Axios.get("https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province.json").then((response) => {
     setData3(response.data);
   });
-  
+
+
+
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -135,6 +140,7 @@ export default function AddEmployee() {
   return (
     <>
       <AdminNavbar />
+      
       <br />
       <div className="form-container1">
         <form className="form-signin row g-3" enctype='multipart/form-data' >
@@ -309,7 +315,7 @@ export default function AddEmployee() {
               }}
             />
           </div>
-          <div className="col-md-2">
+          <div className="col-md-1">
             <label className="form-label" htmlFor="street">
               ถนน:
             </label>
@@ -322,6 +328,42 @@ export default function AddEmployee() {
               }}
             />
           </div>
+
+          <div className="col-md-2">
+            <label className="form-label">จังหวัด:</label>
+            <select class="notselected" name="province" id="province"
+              className="form-select"
+              htmlFor="province"
+              required
+              showSearch
+              onChange={(event) => {
+                setProvince(event.target.value);
+              }}
+            >
+              <option>กรุณาเลือกจังหวัด</option>
+              {data3.map((val) => {
+                return <option>{val.name_th}</option>;
+              })}
+            </select>
+          </div>
+          
+          <div className="col-md-2">
+            <label className="form-label">อำเภอ/เขต:</label>
+            <select
+              className="form-select"
+              htmlFor="ambhur"
+              required
+              onChange={(event) => {
+                setAmbhur(event.target.value);
+              }}
+            >
+              <option>กรุณาเลือกอำเภอ/เขต</option>
+              {data2.map ((val) => {
+                return <option>{val.name_th}</option>;
+              })}
+            </select>
+          </div>
+          
           <div className="col-md-2">
             <label className="form-label">ตำบล/แขวง:</label>
             <select
@@ -339,39 +381,8 @@ export default function AddEmployee() {
             </select>
           </div>
           <div className="col-md-2">
-            <label className="form-label">อำเภอ/เขต:</label>
-            <select
-              className="form-select"
-              htmlFor="ambhur"
-              required
-              onChange={(event) => {
-                setAmbhur(event.target.value);
-              }}
-            >
-              <option>กรุณาเลือกอำเภอ/เขต</option>
-              {data2.map((val) => {
-                return <option>{val.name_th}</option>;
-              })}
-            </select>
-          </div>
-          <div className="col-md-2">
-            <label className="form-label">จังหวัด:</label>
-            <select
-              className="form-select"
-              htmlFor="province"
-              required
-              onChange={(event) => {
-                setProvince(event.target.value);
-              }}
-            >
-              <option>กรุณาเลือกจังหวัด</option>
-              {data3.map((val) => {
-                return <option>{val.name_th}</option>;
-              })}
-            </select>
-          </div><div className="col-md-1">
             <label className="form-label">รหัสไปรษณีย์:</label>
-            <select
+            <select 
               className="form-select"
               htmlFor="zipCode"
               required
@@ -385,6 +396,7 @@ export default function AddEmployee() {
               })}
             </select>
           </div>
+          
           <div className="col-md-12">
             <label className="form-label" htmlFor="pic">
               อัพโหลดรูปภาพ:

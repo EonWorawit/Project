@@ -48,7 +48,7 @@ export default function Login() {
               showConfirmButton: false,
               timer: 1500,
             });
-            navigate("/admin");
+            navigate("/admin/");
             
           } else if (result === "not Admin") {
             window.localStorage.setItem("isLoggedIn", true);
