@@ -25,7 +25,6 @@ export default function AdminEditEmployee() {
 
   const { id } = useParams();
   const [data, setData] = useState([]);
-
   const [jobPosition, setJobPosition] = useState(data.jobposition);
   const [position, setPosition] = useState("");
   const [employeeName, setEmployeeName] = useState("");
@@ -41,9 +40,9 @@ export default function AdminEditEmployee() {
   const [pic, setPic] = useState("");
   console.log(employeeName);
 
-  function handleImage(event) {
+  function handleChange(event) {
     console.log(event.target.files);
-    setPic(event.target.files[0]);
+    setPic(URL.createObjectURL(event.target.files[0]));
   }
 
   useEffect(() => {
@@ -249,7 +248,7 @@ export default function AdminEditEmployee() {
               }}
             />
           </div>
-          <div className="col-md-2">
+          <div className="col-md-1">
             <label className="form-label" htmlFor="street">
               ถนน:
             </label>
@@ -264,20 +263,19 @@ export default function AdminEditEmployee() {
             />
           </div>
           <div className="col-md-2">
-            <label className="form-label">ตำบล/แขวง:</label>
+            <label className="form-label">จังหวัด:</label>
             <select
               className="form-select"
-              htmlFor="districts"
-              value={disdrict}
+              htmlFor="province"
+              value={province}
               required
               onChange={(event) => {
-                setDisdrict(event.target.value);
+                setProvince(event.target.value);
               }}
             >
-              <option>กรุณาเลือกตำบล/แขวง</option>
-              {data1.map((val) => {
+              <option>กรุณาเลือกจังหวัด</option>
+              {data3.map((val) => {
                 return <option>{val.name_th}</option>;
-                
               })}
             </select>
           </div>
@@ -299,23 +297,24 @@ export default function AdminEditEmployee() {
             </select>
           </div>
           <div className="col-md-2">
-            <label className="form-label">จังหวัด:</label>
+            <label className="form-label">ตำบล/แขวง:</label>
             <select
               className="form-select"
-              htmlFor="province"
-              value={province}
+              htmlFor="districts"
+              value={disdrict}
               required
               onChange={(event) => {
-                setProvince(event.target.value);
+                setDisdrict(event.target.value);
               }}
             >
-              <option>กรุณาเลือกจังหวัด</option>
-              {data3.map((val) => {
+              <option>กรุณาเลือกตำบล/แขวง</option>
+              {data1.map((val) => {
                 return <option>{val.name_th}</option>;
+                
               })}
             </select>
           </div>
-          <div className="col-md-1">
+          <div className="col-md-2">
             <label className="form-label">รหัสไปรษณีย์:</label>
             <select
               className="form-select"
@@ -332,16 +331,18 @@ export default function AdminEditEmployee() {
               })}
             </select>
           </div>
-          <div className="col-md-12">
+          <div className="col-md-4">
             <label className="form-label" htmlFor="pic">
-              อัพโหลดรูปภาพ:
+              อัพโหลดรูปภาพ
             </label>
+            <br></br>
+            <img className="imgupload" src={pic} />
             <input
               type="file"
               className="form-control"
               htmlFor="pic"
               requires
-              onChange={handleImage}
+              onChange={handleChange}
             />
           </div>
           <button onClick={updateEmployee} className="btn btn-success">

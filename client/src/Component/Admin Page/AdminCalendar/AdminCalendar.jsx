@@ -17,7 +17,8 @@ export default function AdminCalendar() {
   return (
     <>
     <AdminNavbar/>
-    <Link to="/admin/addevent " className="btn btn-success btn-block topright">เพิ่ม Event</Link>
+    <Link to="/admin/addevent " className="btn btn-success btn-block calendaraddevent">เพิ่ม Event</Link>
+    <br/>
     <br/>
     <div className="container bottom">
       <FullCalendar

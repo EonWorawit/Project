@@ -14,3 +14,12 @@
 	  font-family: 'Pridi', serif;
     color: #000000;
 }
+.calendaraddevent {
+    position: absolute;
+    display: flex;
+    right: 305px;
+    font-family: 'K2D', sans-serif;
+	  font-family: 'Pridi', serif;
+    color: #ffffff;
+
+}

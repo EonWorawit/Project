@@ -25,8 +25,6 @@ export default function AddEmployee() {
     setData3(response.data);
   });
 
-
-
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -47,11 +45,12 @@ export default function AddEmployee() {
   const [province, setProvince] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [pic, setPic] = useState("");
+    
   console.log("🚀 ~ file: AddEmployee.js:30 ~ AddEmployee ~ pic:", pic)
 
-  function handleImage(event) {
+  function handleChange(event) {
     console.log(event.target.files);
-    setPic(event.target.files[0])
+    setPic(URL.createObjectURL(event.target.files[0]));
   }
 
   const addEmployee = (event) => {
@@ -145,7 +144,7 @@ export default function AddEmployee() {
       <div className="form-container1">
         <form className="form-signin row g-3" enctype='multipart/form-data' >
           <div>
-            <h2>เพิ่มพนักงาน</h2>
+            <h2>เพิ่มข้อมูลพนักงาน</h2>
           </div>
           <div className="col-md-6">
             <label className="form-label" htmlFor="username">
@@ -197,13 +196,13 @@ export default function AddEmployee() {
                 setJobPosition(event.target.value);
               }}
             >
-              <option>กรุณาเลือก</option>
-              <option>Devepoler</option>
+              <option value="" disabled selected hidden>กรุณาเลือก</option>
+              <option>Developer</option>
               <option>System Analysis</option>
             </select>
           </div>
           <div className="col-md-6">
-            <label className="form-label">ตำแหน่ง:</label>
+            <label className="form-label">ตำแหน่ง</label>
             <select
               className="form-select"
               htmlFor="position"
@@ -212,14 +211,14 @@ export default function AddEmployee() {
                 setPosition(event.target.value);
               }}
             >
-              <option>กรุณาเลือก</option>
+              <option value="" disabled selected hidden>กรุณาเลือก</option>
               <option>หัวหน้าพนักงาน</option>
               <option>พนักงาน</option>
             </select>
           </div>
           <div className="col-md-3">
             <label className="form-label" htmlFor="employeeName">
-              ชื่อ - นามสกุล:
+              ชื่อ - นามสกุล
             </label>
             <input
               type="text"
@@ -258,14 +257,14 @@ export default function AddEmployee() {
                 setGender(event.target.value);
               }}
             >
-              <option>กรุณาเลือก</option>
+              <option value="" disabled selected hidden>กรุณาเลือก</option>
               <option value={true}>ชาย</option>
               <option value={false}>หญิง</option>
             </select>
           </div>
           <div className="col-md-3">
             <label className="form-label" htmlFor="phoneNo">
-              เบอร์โทร:
+              เบอร์โทร
             </label>
             <input
               type="text"
@@ -278,7 +277,7 @@ export default function AddEmployee() {
           </div>
           <div className="col-md-12">
             <label className="form-label" htmlFor="email">
-              อีเมล:
+              อีเมล
             </label>
             <input
               type="email"
@@ -291,7 +290,7 @@ export default function AddEmployee() {
           </div>
           <div className="col-md-2">
             <label className="form-label" htmlFor="address">
-              บ้านเลขที่:
+              บ้านเลขที่
             </label>
             <input
               type="text"
@@ -304,7 +303,7 @@ export default function AddEmployee() {
           </div>
           <div className="col-md-1">
             <label className="form-label" htmlFor="moo">
-              หมู่:
+              หมู่
             </label>
             <input
               type="text"
@@ -317,7 +316,7 @@ export default function AddEmployee() {
           </div>
           <div className="col-md-1">
             <label className="form-label" htmlFor="street">
-              ถนน:
+              ถนน
             </label>
             <input
               type="text"
@@ -330,7 +329,7 @@ export default function AddEmployee() {
           </div>
 
           <div className="col-md-2">
-            <label className="form-label">จังหวัด:</label>
+            <label className="form-label">จังหวัด</label>
             <select class="notselected" name="province" id="province"
               className="form-select"
               htmlFor="province"
@@ -340,7 +339,7 @@ export default function AddEmployee() {
                 setProvince(event.target.value);
               }}
             >
-              <option>กรุณาเลือกจังหวัด</option>
+              <option value="" disabled selected hidden>กรุณาเลือกจังหวัด</option>
               {data3.map((val) => {
                 return <option>{val.name_th}</option>;
               })}
@@ -348,7 +347,7 @@ export default function AddEmployee() {
           </div>
           
           <div className="col-md-2">
-            <label className="form-label">อำเภอ/เขต:</label>
+            <label className="form-label">อำเภอ/เขต</label>
             <select
               className="form-select"
               htmlFor="ambhur"
@@ -357,7 +356,7 @@ export default function AddEmployee() {
                 setAmbhur(event.target.value);
               }}
             >
-              <option>กรุณาเลือกอำเภอ/เขต</option>
+              <option value="" disabled selected hidden>กรุณาเลือกอำเภอ/เขต</option>
               {data2.map ((val) => {
                 return <option>{val.name_th}</option>;
               })}
@@ -365,7 +364,7 @@ export default function AddEmployee() {
           </div>
           
           <div className="col-md-2">
-            <label className="form-label">ตำบล/แขวง:</label>
+            <label className="form-label">ตำบล/แขวง</label>
             <select
               className="form-select"
               htmlFor="districts"
@@ -374,14 +373,14 @@ export default function AddEmployee() {
                 setDisdrict(event.target.value);
               }}
             >
-              <option>กรุณาเลือกตำบล/แขวง</option>
+              <option value="" disabled selected hidden>กรุณาเลือกตำบล/แขวง</option>
               {data1.map((val) => {
                 return <option>{val.name_th}</option>;
               })}
             </select>
           </div>
           <div className="col-md-2">
-            <label className="form-label">รหัสไปรษณีย์:</label>
+            <label className="form-label">รหัสไปรษณีย์</label>
             <select 
               className="form-select"
               htmlFor="zipCode"
@@ -390,23 +389,25 @@ export default function AddEmployee() {
                 setZipCode(event.target.value);
               }}
             >
-              <option>กรุณาเลือกรหัสไปรษณีย์</option>
+              <option value="" disabled selected hidden>กรุณาเลือกรหัสไปรษณีย์</option>
               {data1.map((val) => {
                 return <option>{val.zip_code}</option>;
               })}
             </select>
           </div>
           
-          <div className="col-md-12">
+          <div className="col-md-4">
             <label className="form-label" htmlFor="pic">
-              อัพโหลดรูปภาพ:
+              อัพโหลดรูปภาพ
             </label>
+            <br></br>
+            <img className="imgupload" src={pic} />
             <input
               type="file"
               className="form-control"
               htmlFor="pic"
               requires
-              onChange={handleImage}
+              onChange={handleChange}
             />
           </div>
           <button onClick={addEmployee} class="btn btn-success">

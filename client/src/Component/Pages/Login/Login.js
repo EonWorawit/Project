@@ -23,7 +23,7 @@ export default function Login() {
 
     var raw = JSON.stringify({
       username: inputs.username,
-      password: inputs.password,
+      password: inputs.password
     });
 
     var requestOptions = {
@@ -76,7 +76,7 @@ export default function Login() {
             title: "ไม่สามารถเข้าสู่ระบบได้",
             text: "รหัสผู้ใช้งาน หรือ รหัสผ่าน ไม่ถูกต้อง",
           });
-          navigate("/Login"); 
+          navigate("/Login");
         }
       })
       .catch((error) =>
@@ -84,9 +84,10 @@ export default function Login() {
           icon: "error",
           title: "ไม่สามารถเข้าสู่ระบบได้",
           text: "รหัสผู้ใช้งาน หรือ รหัสผ่าน ไม่ถูกต้อง",
-
+          
         })
       );
+      
     console.log(inputs);
   };
   return (

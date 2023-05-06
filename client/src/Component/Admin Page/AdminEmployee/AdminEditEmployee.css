@@ -3,12 +3,6 @@
     justify-content: center;
     align-items: center;
     height: auto;
+    
   }
   
-  .form-signin1 {
-    width: 100%;
-    max-width: 80%;
-    padding: 2rem;
-    /* margin: auto; */
-    background-color: #f3f3f3;
-  }
